@@ -20,7 +20,7 @@ public class UpDownTextView extends TextView implements Animator.AnimatorListene
 
     private static final String TAG = "UpDownTextView";
 
-    private static final int ANIMATION_DURATION = 50;
+    private static final int ANIMATION_DURATION = 200;
     private float height;
     private AnimatorSet mAnimatorStartSet;
     private AnimatorSet mAnimatorEndSet;
@@ -61,6 +61,7 @@ public class UpDownTextView extends TextView implements Animator.AnimatorListene
      * --- 初始化从屏幕下面向上的动画效果 ---
      */
     private void initEndAnimation() {
+        //translationY 属性肯定要归为0，不然显示的内容就有偏移了；alpha 也是一样
         ObjectAnimator translate = ObjectAnimator.ofFloat(this, "translationY", height, 0);
         ObjectAnimator alpha = ObjectAnimator.ofFloat(this, "alpha", 0f, 1f);
         mAnimatorEndSet = new AnimatorSet();
