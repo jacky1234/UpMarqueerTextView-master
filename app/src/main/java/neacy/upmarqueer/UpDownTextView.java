@@ -20,7 +20,7 @@ public class UpDownTextView extends TextView implements Animator.AnimatorListene
 
     private static final String TAG = "UpDownTextView";
 
-    private static final int ANIMATION_DURATION = 200;
+    private static final int ANIMATION_DURATION = 50;
     private float height;
     private AnimatorSet mAnimatorStartSet;
     private AnimatorSet mAnimatorEndSet;
