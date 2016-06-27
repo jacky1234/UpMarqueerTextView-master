@@ -3,6 +3,7 @@ package neacy.upmarqueer;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSONObject;
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private UpDownTextView mMarqueeTextView1;
     private List<GonggaoBean.GongGaoData.GongGaoDetails> list = new ArrayList<>();
     private int index = 0;
-    private int TIME = 4 * 1000; //没执行一次所需要的时间
+    private int TIME = 6 * 1000; //没执行一次所需要的时间
     Handler handler = new Handler();
 
     @Override
@@ -55,6 +56,22 @@ public class MainActivity extends AppCompatActivity {
                 mMarqueeTextView.setText("① " + list.get(0).getNtitle());
                 mMarqueeTextView1.setText("② " + list.get(0).getNcontent());
                 handler.postDelayed(runnable, TIME);
+
+                mMarqueeTextView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(MainActivity.this.getApplicationContext(),mMarqueeTextView.getText().toString(),Toast.LENGTH_LONG)
+                                .show();
+                    }
+                });
+
+                mMarqueeTextView1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(MainActivity.this.getApplicationContext(),mMarqueeTextView1.getText().toString(),Toast.LENGTH_LONG)
+                                .show();
+                    }
+                });
             }
 
             @Override
